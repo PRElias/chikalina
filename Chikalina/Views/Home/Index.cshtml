@@ -2,7 +2,7 @@
 
 <div class="row col-md-12 mt">
     <div class="col-md-4">
-        <img src="~/img/logo.png" />
+        <img src="~/images/logo.png" />
         <div class="fb-page mt" data-href="https://www.facebook.com/chikalinaloja/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
             <blockquote cite="https://www.facebook.com/chikalinaloja/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/chikalinaloja/">Chikalina</a></blockquote>
         </div>
@@ -20,10 +20,10 @@
     </div>
 
 </div>
-<div class="row col-md-12 mt">
+<div class="row col-md-12 mt" style="margin-bottom: 50px">
     <div id="photos">
         @foreach (var element in Model)
-            {
+        {
             <img src="@element.Url" class="img-responsive" />
         }
     </div>
@@ -33,6 +33,6 @@
 
 
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/scripts")
-}
+}*@

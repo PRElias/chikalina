@@ -62,5 +62,6 @@
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
 
-Chikalina/Content/* linguist-vendored
-Chikalina/Scripts/* linguist-vendored
+
+MyCollectionsPWA/Content/* linguist-vendored
+MyCollectionsPWA/scripts/* linguist-vendored

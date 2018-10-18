@@ -1,19 +1,28 @@
-﻿using Chikalina.Models;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using chikalina.Models;
+using Chikalina.Models;
 using Facebook;
-using System.Collections.Generic;
-using System.Web.Mvc;
+using Microsoft.Extensions.Options;
 
-namespace Chikalina.Controllers
+namespace chikalina.Controllers
 {
     public class HomeController : Controller
     {
         public List<Fotos> Fotos { get; set; }
+        private readonly IOptions<Keys> _config;
+
+        public HomeController(IOptions<Keys> config)
+        {
+            _config = config;
+        }
+
 
         public ActionResult Index()
         {
-            Fotos = new List<Models.Fotos>();
-            var appid = keys.appid;
-            var appsecret = keys.appsecret;
+            Fotos = new List<Fotos>();
+            var appid = _config.Value.FacebookAppId;
+            var appsecret = _config.Value.FacebookAppSecret;
             string appAccessToken = string.Concat(appid, "|", appsecret);
             var fb = new FacebookClient(appAccessToken);
             dynamic result = fb.Get("1219310658089410?fields=albums.fields(photos.fields(source))");
@@ -23,19 +32,15 @@ namespace Chikalina.Controllers
             {
                 if (Fotos.Count < 24)
                 {
-                    Fotos.Add(new Models.Fotos { Url = item.source });
+                    Fotos.Add(new Fotos { Url = item.source });
                 }
             }
 
+            ViewBag.FacebookAppId = appid;
             return View(Fotos);
         }
 
         public ActionResult About()
-        {
-            return View();
-        }
-
-        public ActionResult Privacidade()
         {
             return View();
         }
