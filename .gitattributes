@@ -63,5 +63,5 @@
 #*.RTF   diff=astextplain
 
 
-chikalina\wwwroot\css\lib* linguist-vendored
-chikalina\wwwroot\js\lib* linguist-vendored
+chikalina\wwwroot\lib\css* linguist-vendored
+chikalina\wwwroot\lib\js* linguist-vendored
